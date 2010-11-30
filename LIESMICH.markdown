@@ -15,8 +15,6 @@ Standardverhalten bei Aktivierung des Addons: Ausgehend von der ersten Ebene erh
 
 Technischer Hinweis: Die Anpassung der Prio erfolgt per JavaScript. Dies muss also beim Benutzer aktiviert sein, damit das Addon funktioniert.
 
-Dieses Addon f&uuml;gt Javascript-Code zu den Kategorien Ihrer Wahl.
-
 Changelog
 ---------
 
