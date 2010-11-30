@@ -11,11 +11,8 @@
 $mypage = 'decaf_custom_prio';
 $REX['ADDON']['rxid'][$mypage]    = "840";
 $REX['ADDON']['page'][$mypage]    = $mypage;
-$REX['ADDON']['version'][$mypage] = "1.0.0";
+$REX['ADDON']['version'][$mypage] = "1.0.1";
 $REX['ADDON']['author'][$mypage]  = "Sven Kesting <sk@decaf.de>, DECAF° | www.decaf.de";
-$REX['ADDON']['perm'][$mypage]    = "decaf_category_js[]";
-$REX['PERM'][]                    = "decaf_category_js[]";
-
 
 if ($REX['REDAXO']) // backend
 {
