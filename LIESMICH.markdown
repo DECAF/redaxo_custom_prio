@@ -20,5 +20,8 @@ Dieses Addon f&uuml;gt Javascript-Code zu den Kategorien Ihrer Wahl.
 Changelog
 ---------
 
+* **1.0.1:** 
+  * Überflüssige Backend-Benutzerrechte entfernt
+
 * **1.0.0:** 
-  * Initial release
+  * Erste Veröffentlichung
