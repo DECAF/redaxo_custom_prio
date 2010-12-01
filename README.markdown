@@ -17,6 +17,8 @@ The default priority is set with jQuery, so Javascript has to be activated on th
 
 Changelog
 ---------
+* **1.0.1:** 
+  * cleaned up svn files
 
 * **1.0.1:** 
   * removed obsolete backend user permissions

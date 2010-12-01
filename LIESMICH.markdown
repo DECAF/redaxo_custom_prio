@@ -17,6 +17,8 @@ Technischer Hinweis: Die Anpassung der Prio erfolgt per JavaScript. Dies muss al
 
 Changelog
 ---------
+* **1.0.2:** 
+  * svn Dateien entfernt
 
 * **1.0.1:** 
   * Überflüssige Backend-Benutzerrechte entfernt
