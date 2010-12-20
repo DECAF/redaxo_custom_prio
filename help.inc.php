@@ -11,20 +11,6 @@
 $mypage = 'decaf_custom_prio';
 
 $base_path = $REX['INCLUDE_PATH'] .'/addons/'.$mypage;
-require_once($base_path.'/classes/markdown.class.php');
-
-switch($lang) {
-  case 'default':
-  case 'de_de_utf8':
-  case 'de_de':
-    $file = 'LIESMICH.markdown';
-    break;
-  default:
-    $file = 'README.markdown';
-}
-
-
-$content = Markdown(file_get_contents(dirname( __FILE__)."/".$file));
 
 ?>
 <style type="text/css" media="screen">
@@ -35,7 +21,57 @@ $content = Markdown(file_get_contents(dirname( __FILE__)."/".$file));
 </style>
 
 <div id="decaf_piwik_tracker_help">
-
-<?php echo $content ?>
-
+<h1>
+  README
+</h1>
+<h2>
+  Addon: <a href="http://www.redaxo.de/180-0-addon-details.html?addon_id=840" title="http://www.redaxo.de/180-0-addon-details.html?addon_id=840">CustomPrio</a>
+</h2>
+<h2>
+  Description
+</h2>
+<p>
+  Changes the priority of new articles or categories. Instead of 100 as the default value you can set your own default priorities.
+</p>
+<p>
+  Configuration is stored in an ini-File. You can set the category-ID in which the custom priority for new articles and categories are overridden and if the priority should be inherited.
+</p>
+<p>
+  After installation of the addon new articles will get the priority of 2, categories are unchanged at 100.
+</p>
+<p>
+  The default priority is set with jQuery, so Javascript has to be activated on the client side.
+</p>
+<h2>
+  Changelog
+</h2>
+<ul>
+  <li>
+    <p>
+      <strong>1.0.1:</strong>
+    </p>
+    <ul>
+      <li>cleaned up svn files
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p>
+      <strong>1.0.1:</strong>
+    </p>
+    <ul>
+      <li>removed obsolete backend user permissions
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p>
+      <strong>1.0.0:</strong>
+    </p>
+    <ul>
+      <li>Initial release
+      </li>
+    </ul>
+  </li>
+</ul>
 </div>
