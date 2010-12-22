@@ -7,11 +7,6 @@
  * @package redaxo4
  * @version $Id: help.inc.php 26 2010-11-30 12:11:05Z sk $
  */
-
-$mypage = 'decaf_custom_prio';
-
-$base_path = $REX['INCLUDE_PATH'] .'/addons/'.$mypage;
-
 ?>
 <style type="text/css" media="screen">
   #addon-help h1 {
