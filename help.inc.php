@@ -24,7 +24,7 @@
 
 <div id="addon-help">
 
-  <h1>Addon: <a href="http://www.redaxo.de/180-0-addon-details.html?addon_id=840" title="http://www.redaxo.de/180-0-addon-details.html?addon_id=840">CustomPrio</a></h1>
+  <h1>Addon: <a href="http://www.redaxo.org/de/download/addons/?addon_id=840" title="http://www.redaxo.org/de/download/addons/?addon_id=840">CustomPrio</a></h1>
 
   <p><strong>Changes the priority (Prio) of new articles or categories. Instead of 100 as the default value, you can set your own default priorities.</strong></p>
   <p>After installation of the addon new articles will get the priority of 2, categories are unchanged at 100.</p>
