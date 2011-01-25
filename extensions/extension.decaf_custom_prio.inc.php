@@ -65,20 +65,22 @@ function decaf_custom_prio($params)
 }
 
 // compat for REX4.2
-function getCategoryPathAsArray($cat) {
-  if (method_exists($cat, 'getPathAsArray')) {
-    $path = array_reverse($cat->getPathAsArray());
-  } else {
-    $p = explode('|',$cat->_path);
-    foreach($p as $k => $v)
-    {
-      if($v == '')
-        unset($p[$k]);
-      else
-        $p[$k] = (int) $v;
-    }
-    $path = array_values($p);
-  }
-  array_unshift($path,0); // add root category '0' to path
-  return $path;
+if (!function_exists('getCategoryPathAsArray')) {
+	function getCategoryPathAsArray($cat) {
+	  if (method_exists($cat, 'getPathAsArray')) {
+	    $path = array_reverse($cat->getPathAsArray());
+	  } else {
+	    $p = explode('|',$cat->_path);
+	    foreach($p as $k => $v)
+	    {
+	      if($v == '')
+	        unset($p[$k]);
+	      else
+	        $p[$k] = (int) $v;
+	    }
+	    $path = array_values($p);
+	  }
+	  array_unshift($path,0); // add root category '0' to path
+	  return $path;
+	}
 }
