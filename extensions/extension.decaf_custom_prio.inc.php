@@ -18,30 +18,34 @@ function decaf_custom_prio($params)
 
   // init vars
   $new_category_prio = false;
-  $new_article_prio = false;
+  $new_article_prio  = false;
 
   $cat_id = rex_get('category_id') ? rex_get('category_id') : 0;
 
-  if (isset($decaf_category_js_config[$cat_id])) // check entry for current category
+  $cat = OOCategory::getCategoryById($cat_id);
+  if ($cat)
   {
-    $new_category_prio = $decaf_category_js_config[$cat_id]['new_category_prio'];
-    $new_article_prio = $decaf_category_js_config[$cat_id]['new_article_prio'];
-  }
+    // init inherited prios
+    $inherited_category_prio = $new_category_prio;
+    $inherited_article_prio  = $new_article_prio;
 
-  if (!$new_category_prio) // check if prios are set in parent categories
-  {
-    $cat = OOCategory::getCategoryById($cat_id);
-    if ($cat)
-    {
-      
-      $path = getCategoryPathAsArray($cat);
+    $path = getCategoryPathAsArray($cat, $cat_id);
+    foreach($path as $v) {
 
-      foreach($path as $cat_id) {
-        if (isset($decaf_category_js_config[$cat_id]) && $decaf_category_js_config[$cat_id]['inherit']) // check entry for current category
-        {
-          $new_category_prio = $decaf_category_js_config[$cat_id]['new_category_prio'];
-          $new_article_prio = $decaf_category_js_config[$cat_id]['new_article_prio'];
-          break;
+      // use inherited prios (first)
+      $new_category_prio = $inherited_category_prio;
+      $new_article_prio  = $inherited_article_prio;
+
+      // use specific prios if available
+      if (isset($decaf_category_js_config[$v])) // check entry for current category
+      {
+        $new_category_prio = $decaf_category_js_config[$v]['new_category_prio'];
+        $new_article_prio  = $decaf_category_js_config[$v]['new_article_prio'];
+
+        if ($decaf_category_js_config[$v]['inherit'] == true) {
+          // update inherited prios
+          $inherited_category_prio = $new_category_prio;
+          $inherited_article_prio  = $new_article_prio;
         }
       }
     }
@@ -65,22 +69,21 @@ function decaf_custom_prio($params)
 }
 
 // compat for REX4.2
-if (!function_exists('getCategoryPathAsArray')) {
-	function getCategoryPathAsArray($cat) {
-	  if (method_exists($cat, 'getPathAsArray')) {
-	    $path = array_reverse($cat->getPathAsArray());
-	  } else {
-	    $p = explode('|',$cat->_path);
-	    foreach($p as $k => $v)
-	    {
-	      if($v == '')
-	        unset($p[$k]);
-	      else
-	        $p[$k] = (int) $v;
-	    }
-	    $path = array_values($p);
-	  }
-	  array_unshift($path,0); // add root category '0' to path
-	  return $path;
-	}
+function getCategoryPathAsArray($cat, $cat_id) {
+  if (method_exists($cat, 'getPathAsArray')) {
+    $path = $cat->getPathAsArray();
+  } else {
+    $p = explode('|',$cat->_path);
+    foreach($p as $k => $v)
+    {
+      if($v == '')
+        unset($p[$k]);
+      else
+        $p[$k] = (int) $v;
+    }
+    $path = array_values($p);
+  }
+  array_unshift($path,0); // add root category '0' to path
+  array_push($path, $cat_id); // add current category to path
+  return $path;
 }

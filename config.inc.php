@@ -12,7 +12,7 @@ $mypage = 'decaf_custom_prio';
 
 $REX['ADDON']['rxid'][$mypage]    = "840";
 $REX['ADDON']['page'][$mypage]    = $mypage;
-$REX['ADDON']['version'][$mypage] = "1.0.3";
+$REX['ADDON']['version'][$mypage] = "1.0.4";
 $REX['ADDON']['author'][$mypage]  = "Sven Kesting <sk@decaf.de>, DECAF";
 
 if ($REX['REDAXO']) // backend
