@@ -1,3 +1,13 @@
+--------------------------------------------------
+
+**Dieses Projekt wird nicht weiter gepflegt.**  
+Falls du es übernehmen und weiterentwickeln möchtest, [gib uns gerne bescheid](https://twitter.com/_DECAF)!
+
+--------------------------------------------------
+
+.  
+
+
 # [CustomPrio](http://www.redaxo.org/de/download/addons/?addon_id=840)
 
 **Verändert die Priorität neuer Artikel oder Ordner. Statt des Standardwerts 100/MAX kann z.B. 1 verwendet werden, um neue Artikel oben einzuhängen.**
